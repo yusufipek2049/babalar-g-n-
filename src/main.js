@@ -5,8 +5,10 @@ document.documentElement.classList.add('js');
 const giftIntro = document.querySelector('[data-gift-intro]');
 const giftBox = document.querySelector('[data-gift-box]');
 const finalToggle = document.querySelector('[data-final-toggle]');
-const finalMessage = document.querySelector('[data-final-message]');
+const finalModal = document.querySelector('[data-final-modal]');
+const finalClose = document.querySelector('[data-final-close]');
 const giftSeenKey = 'babasiteGiftOpened';
+let previousFocus = null;
 
 const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
@@ -30,17 +32,17 @@ const setGiftProgress = (progress) => {
   const eased = clamp(progress, 0, 1);
 
   document.documentElement.style.setProperty('--gift-progress', eased.toFixed(3));
-  document.documentElement.style.setProperty('--gift-box-y', `${eased * -18}px`);
-  document.documentElement.style.setProperty('--gift-box-scale', `${1 - eased * 0.08}`);
-  document.documentElement.style.setProperty('--gift-box-opacity', `${1 - eased * 0.16}`);
-  document.documentElement.style.setProperty('--gift-lid-y', `${eased * -132}px`);
-  document.documentElement.style.setProperty('--gift-lid-rotate', `${eased * -14}deg`);
-  document.documentElement.style.setProperty('--gift-bow-y', `${eased * -118}px`);
+  document.documentElement.style.setProperty('--gift-box-y', `${eased * -24}px`);
+  document.documentElement.style.setProperty('--gift-box-scale', `${1 - eased * 0.1}`);
+  document.documentElement.style.setProperty('--gift-box-opacity', `${1 - eased * 0.2}`);
+  document.documentElement.style.setProperty('--gift-lid-y', `${eased * -168}px`);
+  document.documentElement.style.setProperty('--gift-lid-rotate', `${eased * -18}deg`);
+  document.documentElement.style.setProperty('--gift-bow-y', `${eased * -150}px`);
   document.documentElement.style.setProperty('--gift-ribbon-gap', `${eased * 115}%`);
   document.documentElement.style.setProperty('--gift-wrap-opacity', `${1 - eased * 0.6}`);
-  document.documentElement.style.setProperty('--gift-wrap-y', `${eased * -34}px`);
-  document.documentElement.style.setProperty('--gift-sparkle-scale', `${0.85 + eased * 1.1}`);
-  document.documentElement.style.setProperty('--gift-ribbon-y', `${eased * 82}px`);
+  document.documentElement.style.setProperty('--gift-wrap-y', `${eased * -44}px`);
+  document.documentElement.style.setProperty('--gift-sparkle-scale', `${0.85 + eased * 1.3}`);
+  document.documentElement.style.setProperty('--gift-ribbon-y', `${eased * 96}px`);
   document.documentElement.style.setProperty('--gift-hint-opacity', `${0.62 - eased * 0.5}`);
 };
 
@@ -73,7 +75,7 @@ if (giftIntro && (prefersReducedMotion || hasSeenGift())) {
       document.documentElement.classList.remove('gift-gated', 'gift-opening');
       giftIntro.setAttribute('aria-hidden', 'true');
       giftIntro.setAttribute('tabindex', '-1');
-    }, 720);
+    }, 980);
   };
 
   const resetGift = () => {
@@ -133,52 +135,85 @@ if (giftIntro && (prefersReducedMotion || hasSeenGift())) {
   });
 }
 
-const launchHearts = (source) => {
+const launchHeartStorm = () => {
   if (prefersReducedMotion) return;
 
-  const rect = source.getBoundingClientRect();
-  const originX = rect.left + rect.width / 2;
-  const originY = rect.top + rect.height / 2;
-
-  for (let index = 0; index < 18; index += 1) {
+  for (let index = 0; index < 180; index += 1) {
     const heart = document.createElement('span');
-    const driftX = (Math.random() - 0.5) * 180;
-    const driftY = -90 - Math.random() * 110;
-    const size = 14 + Math.random() * 16;
+    const startsInsideScreen = index < 86;
+    const startX = Math.random() * window.innerWidth;
+    const startY = startsInsideScreen
+      ? Math.random() * window.innerHeight
+      : window.innerHeight + 24 + Math.random() * 120;
+    const driftX = (Math.random() - 0.5) * 260;
+    const driftY = startsInsideScreen
+      ? -120 - Math.random() * window.innerHeight * 0.58
+      : -window.innerHeight * (0.72 + Math.random() * 0.75);
+    const size = 14 + Math.random() * 34;
 
-    heart.className = 'floating-heart';
+    heart.className = 'screen-heart';
     heart.textContent = '♥';
-    heart.style.left = `${originX}px`;
-    heart.style.top = `${originY}px`;
+    heart.style.left = `${startX}px`;
+    heart.style.top = `${startY}px`;
     heart.style.fontSize = `${size}px`;
     heart.style.setProperty('--heart-x', `${driftX}px`);
     heart.style.setProperty('--heart-y', `${driftY}px`);
-    heart.style.animationDelay = `${index * 18}ms`;
+    heart.style.setProperty('--heart-rotate', `${(Math.random() - 0.5) * 70}deg`);
+    heart.style.animationDelay = `${Math.random() * 560}ms`;
+    heart.style.animationDuration = `${1700 + Math.random() * 1300}ms`;
 
     document.body.append(heart);
     heart.addEventListener('animationend', () => heart.remove(), { once: true });
   }
 };
 
-if (finalToggle && finalMessage) {
+const openFinalModal = () => {
+  if (!finalModal || !finalToggle) return;
+
+  previousFocus = document.activeElement;
+  finalModal.hidden = false;
+  finalToggle.setAttribute('aria-expanded', 'true');
+  document.documentElement.classList.add('modal-open');
+  launchHeartStorm();
+
+  window.requestAnimationFrame(() => {
+    finalModal.classList.add('is-open');
+    finalClose?.focus();
+  });
+};
+
+const closeFinalModal = () => {
+  if (!finalModal || !finalToggle) return;
+
+  finalModal.classList.remove('is-open');
+  finalToggle.setAttribute('aria-expanded', 'false');
+  document.documentElement.classList.remove('modal-open');
+
+  window.setTimeout(() => {
+    finalModal.hidden = true;
+    previousFocus?.focus?.();
+  }, prefersReducedMotion ? 0 : 260);
+};
+
+if (finalToggle && finalModal) {
   finalToggle.hidden = false;
-  finalMessage.hidden = true;
   finalToggle.setAttribute('aria-expanded', 'false');
 
   finalToggle.addEventListener('click', () => {
-    const isOpen = finalToggle.getAttribute('aria-expanded') === 'true';
-    finalToggle.setAttribute('aria-expanded', String(!isOpen));
-    finalMessage.hidden = isOpen;
-    launchHearts(finalToggle);
+    openFinalModal();
+  });
 
-    if (!isOpen && !prefersReducedMotion) {
-      finalMessage.animate(
-        [
-          { opacity: 0, transform: 'translateY(10px)' },
-          { opacity: 1, transform: 'translateY(0)' },
-        ],
-        { duration: 320, easing: 'ease-out' }
-      );
+  finalClose?.addEventListener('click', closeFinalModal);
+
+  finalModal.addEventListener('click', (event) => {
+    if (event.target === finalModal) {
+      closeFinalModal();
+    }
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !finalModal.hidden) {
+      closeFinalModal();
     }
   });
 }

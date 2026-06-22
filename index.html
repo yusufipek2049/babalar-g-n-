@@ -269,27 +269,47 @@
             type="button"
             hidden
             aria-expanded="false"
-            aria-controls="final-message"
+            aria-controls="final-modal"
             data-final-toggle
           >
             Baba, son bir şey daha var.
           </button>
-          <div class="final-message" id="final-message" data-final-message>
-            <p>
-              Tüm bu sahipleniş ve kontrol istencine rağmen beni de
-              büyüdükçe dinlemeye başlaman beni çok mutlu ediyor.
-              
-            </p>
-            <p>
-              Bana sadece ne yapmam gerektiğini değil, hayata nasıl bakmam
-              gerektiğini de öğrettin. Bugün olduğum kişide oldukça fazla izin var.
-            </p>
-            <p class="signature">Seni seviyorum baba. Babalar Günün kutlu olsun.</p>
-          </div>
+          <noscript>
+            <div class="final-message">
+              <p>
+                Tüm bu sahipleniş ve kontrol istencine rağmen beni de
+                büyüdükçe dinlemeye başlaman beni çok mutlu ediyor.
+              </p>
+              <p>
+                Bana sadece ne yapmam gerektiğini değil, hayata nasıl bakmam
+                gerektiğini de öğrettin. Bugün olduğum kişide oldukça fazla izin var.
+              </p>
+              <p class="signature final-signature">SENİ SEVİYORUM BABA BABALAR GÜNÜN KUTLU OLSUN</p>
+            </div>
+          </noscript>
         </div>
       </section>
 
     </main>
+
+    <div class="final-modal" id="final-modal" data-final-modal hidden>
+      <div class="final-modal-card" role="dialog" aria-modal="true" aria-labelledby="final-modal-title">
+        <button class="modal-close" type="button" aria-label="Final mesajını kapat" data-final-close>×</button>
+        <p class="eyebrow">Final mesajı</p>
+        <h2 id="final-modal-title">Büyüdükçe daha iyi anladığım şey</h2>
+        <div class="final-message" data-final-message>
+          <p>
+            Tüm bu sahipleniş ve kontrol istencine rağmen beni de
+            büyüdükçe dinlemeye başlaman beni çok mutlu ediyor.
+          </p>
+          <p>
+            Bana sadece ne yapmam gerektiğini değil, hayata nasıl bakmam
+            gerektiğini de öğrettin. Bugün olduğum kişide oldukça fazla izin var.
+          </p>
+          <p class="signature final-signature">SENİ SEVİYORUM BABA BABALAR GÜNÜN KUTLU OLSUN</p>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
       <p>Benden babama...</p>
