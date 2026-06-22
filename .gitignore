@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Docs and prompt/checklist files
+docs/
+*.md
+!README.md
+
+# Local/editor noise
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.bak
+*.orig
+*~
+
+# Environment files
+.env
+.env.*

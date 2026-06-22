@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Yusuf'un babası için hazırlanmış kişisel Babalar Günü web sitesi."
+    />
+    <title>Babam İçin</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">İçeriğe geç</a>
+
+    <section
+      class="gift-intro"
+      role="button"
+      tabindex="0"
+      aria-label="Hediye paketini aç"
+      data-gift-intro
+    >
+      <div class="gift-curtain">
+        <div class="gift-sparkles">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="gift-box" data-gift-box>
+          <div class="gift-lid"></div>
+          <div class="gift-bow">
+            <span></span>
+            <span></span>
+          </div>
+          <div class="gift-body">
+            <span class="gift-ribbon gift-ribbon-vertical"></span>
+            <span class="gift-ribbon gift-ribbon-horizontal"></span>
+          </div>
+        </div>
+        <div class="gift-drag-hint"></div>
+      </div>
+    </section>
+
+    <header class="site-header" aria-label="Sayfa başlığı">
+      <nav class="nav" aria-label="Ana gezinme">
+        <a class="brand" href="#hero" aria-label="Babam İçin ana sayfa">
+          <span aria-hidden="true">⌂</span>
+          <span>Babam İçin</span>
+        </a>
+        <div class="nav-links">
+          <a href="#babama-dair">Babama Dair</a>
+          <a href="#anilar">Anılar</a>
+          <a href="#final">Final</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section" id="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Babalar Günü için küçük bir not</p>
+          <h1 id="hero-title">Hediyem biraz gecikti ama olsun.</h1>
+          <p class="hero-text">
+            Hoşgeldin Baba
+          </p>
+          <a class="button primary" href="#babama-dair">Başlayalım</a>
+        </div>
+
+        <figure class="hero-visual" aria-labelledby="hero-visual-title">
+          <img src="./assets/images/nature-memory.svg" alt="Sıcak gün ışığında dağlar, göl, ağaçlar ve küçük bir kır evi bulunan doğa manzarası" />
+          <figcaption id="hero-visual-title">
+            Fotoğraflardan çok içimde kalan sakin manzaraların hikayesi.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section class="section" id="babama-dair" aria-labelledby="babama-dair-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Karakter kartları</p>
+          <h2 id="babama-dair-title">Babama Dair</h2>
+          <p>
+            Babacığımın birtakım klasikleşmiş özellikleri
+          </p>
+        </div>
+
+        <div class="card-grid character-grid">
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">🚗</span>
+            <h3>Araba Piyasasının Nabzı</h3>
+            <p>
+              Yeni araba alma ihtimali ufukta görünmese bile piyasa yoklanır.
+              Fiyatlar, modeller, fırsatlar; hepsi bir baba radarından geçer.
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">🧭</span>
+            <h3>Duygusal Lider Hali</h3>
+            <p>
+              İnsan odaklı, sahiplenen, yönlendiren ve işin doğrusunu göstermeye
+              çalışan tarafın hep baskın. Oldukça sert bir komutan olduğun oluyor ama asıl
+              amacın içten içe korumak.
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">💬</span>
+            <h3>Kelimeler Biraz Zor Yerini Bulur</h3>
+            <p>
+              Dolu bir zihne ve konuşurken düşünen bir yapıya sahip olduğundan yaşlılığın
+              etkisiyle konuşmaya başlarken uzun esler verdiğin oluyor.
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">↔</span>
+            <h3>Yusuf mu, Rıfat mı?</h3>
+            <p>
+              Bana amcamın adıyla, amcama benim adımla seslenmesi artık kanıksandı. 
+              İkimiz de kime seslendiğini biliyoruz.
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">🤲</span>
+            <h3>Cömertlik</h3>
+            <p>
+              Cömertliğin sadece vermek değil, birinin arkasında durmak olduğunu
+              senden gördüm. Hayatın her bağlamında cömert birisisin.
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">💪</span>
+            <h3>Göbüşlü Ama Güçlü</h3>
+            <p>
+              Evde koltukta oturan o peluş gıdılı adamla
+              cezaevindeki adam asla aynı kişi değil. Eskiden
+              cezaevindeki adam eve de geldiğinden korkutucuydun. 
+              Büyüdükçe her iki adamın da güven veren tarafı daha
+              görünür oldu.
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">
+              <img src="./assets/icons/village.svg" alt="" />
+            </span>
+            <h3>Köy</h3>
+            <p>
+              Her ne kadar benim de değerim olsa da sonuçta bu
+              değeri babamdan aldım. Köye gitmenin
+              zahmetine rağmen her hareketinden,
+              yükleri arabaya taşırkenki gerginliğinden hevesini
+              anlayabiliyoruz. 
+            </p>
+          </article>
+          <article class="card reveal">
+            <span class="card-icon" aria-hidden="true">🏠</span>
+            <h3>Sert Baba Figürü</h3>
+            <p>
+              Küçükken sertliğin daha büyük görünürdü. Şimdi geriye bakınca,
+              o sertliğin içinde koruma, sorumluluk ve hayatı ciddiye alma
+              refleksi olduğunu daha iyi anlıyorum.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section alt-section" id="anilar" aria-labelledby="anilar-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Küçük anılar</p>
+          <h2 id="anilar-title">Minicikler ama bende önemi var</h2>
+          <p>
+            Anlam bazen bir salatalığın ucunda, bir otoparkın
+            betonunda veya masadaki uzun bir tartışmadadır.
+          </p>
+        </div>
+
+        <div class="memory-list">
+          <article class="memory-card reveal">
+            <img src="./assets/icons/cucumber.svg" alt="" aria-hidden="true" />
+            <div>
+              <h3>Salatalık Olayı</h3>
+              <p>
+                Küçükken büyük bir özenle salatalık soymuştum. Sonra sen gelip
+                salatalığın çoğunu tek hamlede ısırdın. Ben de kendi emeğimden
+                doğru düzgün yiyemeyeceğimi anlayınca ağladım. Şimdi komik
+                geliyor ama o gün çocuk kalbim için adaletsizlikle karşılaştığım ilk anlardandı.
+              </p>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img src="./assets/icons/plastic-ball.svg" alt="" aria-hidden="true" />
+            <div>
+              <h3>Otoparkta Top Oynama</h3>
+              <p>
+                Bir gün evin önündeki otoparkta benimle top oynamanı çok istemiştim. 
+                Nihayetinde ikna olup benimle oynamıştın.
+                Belki senin için sıradan bir andı ama 
+                benimle pek oyun oynamazdın. O gün oynaman benim için çok özeldi.
+              </p>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img src="./assets/icons/strength.svg" alt="" aria-hidden="true" />
+            <div>
+              <h3>Para mı Güç mü?</h3>
+              <p>
+                Paranın gücün doğası ile ilgili her şeye hükmedemeyeceğini
+                bu tartışmamız sayesinde anlamam beraberinde çığ gibi büyüyen
+                bir kartopu doğurdu. Kısaca anlatmam gerekirse paranın sadece
+                son üç yüz yılda popüler bir meta olduğunu bu pencerenin varlığı
+                sayesinde keşfettim.
+              </p>
+            </div>
+          </article>
+
+          <article class="memory-card reveal">
+            <img src="./assets/icons/scale.svg" alt="" aria-hidden="true" />
+            <div>
+              <h3>Kapitalizm mi Sosyalizm mi?</h3>
+              <p>
+                Sistemler üzerine tartışırken hayatın yalnızca iyi niyetle
+                işlemediğini daha iyi gördüm. Kapitalizmin vahşi tarafını ve
+                bütün sistemlerin sert gerçeklerini düşünmeme sebep oldun.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="ogrettiklerin" aria-labelledby="ogrettiklerin-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Bana öğrettiklerin</p>
+          <h2 id="ogrettiklerin-title">Büyüdükçe Anladığım Şeyler</h2>
+        </div>
+
+        <ul class="lesson-list reveal">
+          <li>Başarı ailenin sosyoekonomik yapısıyla direkt ilişkilidir.</li>
+          <li>Sorumluluk almazsan hayatını başkalarının aklına emanet etmiş olursun.</li>
+          <li>Pek kimse kendi sorumluluğunu almıyor çünkü karar almak zor.</li>
+          <li>Sistemlerin zamanla yozlaşacak yanları vardır.</li>
+          <li>Cömertlik yalnızca vermek değil, sahip çıkmaktır.</li>
+          <li>Eğitim, biz orta ve alt sınıfların haysiyetli bir yaşam için şu anda tek çaresi.</li>
+          <li>İnsan babasını büyüdükçe daha iyi anlar.</li>
+        </ul>
+      </section>
+
+      <section class="section thanks-section" id="tesekkur" aria-labelledby="tesekkur-title">
+        <div class="thanks-copy reveal">
+          <p class="eyebrow">Teşekkür</p>
+          <h2 id="tesekkur-title">Bugün olduğum kişide senin izin var.</h2>
+          <p>
+            Bazı şeyleri küçükken sadece sertlik, kural veya lüzumsuz tartışma gibi
+            görüyordum. Şimdi daha iyi anlıyorum: Tavırlarının çoğunda beni
+            hayata hazırlama, koruma ve ayakta durmayı öğretme çabası vardı.
+          </p>
+          <p>
+            Cömertliğin, sahiplenişin, küçükken bazı hafta sonları beni gezdirmelerin, esprili
+            dilin ve beni hayatında koyduğun yer için teşekkür ederim. İyi ki varsın baba.
+          </p>
+        </div>
+      </section>
+
+      <section class="section final-section" id="final" aria-labelledby="final-title">
+        <div class="final-box reveal">
+          <p class="eyebrow">Sürpriz final</p>
+          <h2 id="final-title">Baba, son bir şey daha var.</h2>
+          <button
+            class="button secondary"
+            type="button"
+            hidden
+            aria-expanded="false"
+            aria-controls="final-message"
+            data-final-toggle
+          >
+            Baba, son bir şey daha var.
+          </button>
+          <div class="final-message" id="final-message" data-final-message>
+            <p>
+              Tüm bu sahipleniş ve kontrol istencine rağmen beni de
+              büyüdükçe dinlemeye başlaman beni çok mutlu ediyor.
+              
+            </p>
+            <p>
+              Bana sadece ne yapmam gerektiğini değil, hayata nasıl bakmam
+              gerektiğini de öğrettin. Bugün olduğum kişide oldukça fazla izin var.
+            </p>
+            <p class="signature">Seni seviyorum baba. Babalar Günün kutlu olsun.</p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <p>Benden babama...</p>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
